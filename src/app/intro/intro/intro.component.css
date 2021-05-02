@@ -1,0 +1,38 @@
+.background-image-container{
+    height: 100vh;
+
+    background-image: url("/../../assets/images/wave-hero-background.svg");
+background-size: cover;
+    
+    background-repeat: no-repeat;
+}
+.container{
+    width: 30%;
+    height: 50%;
+    display:flex;
+    justify-content: center;
+    margin: auto;
+}
+.cartel{
+    margin-top: 40%;
+    display: flex;
+    flex-direction: column;
+}
+a{  
+    color:white;
+    font-size: 2em;
+    text-decoration: none;
+    padding: 10px;
+    border-color: #f7f4f4;
+border-width: 2px;
+border-style: solid;
+}
+a:hover {
+    background-color: tomato;
+}
+.full-container{
+    text-align: center;
+}
+h1{
+    font-size: 3em;
+}
