@@ -46,17 +46,19 @@ a:hover {
     background-color: tomato;
 }
 .full-container{
-    
+   
 }
 h1{
     font-size: 3em;
 }
-.navbar{
+/* .navbar{
     color:white;
     
+} */
+
+.navbar h3{
+    margin-top: 20%;
 }
-
-
 .componentes{
     width: 80%;
     min-height: 500px;
@@ -83,3 +85,10 @@ footer a {
     text-decoration: none;
     color: white;
    }
+
+   @media only screen and (max-width: 600px) {
+    .navbar h3 {
+       margin-top: 1px;
+      }
+      
+    }
