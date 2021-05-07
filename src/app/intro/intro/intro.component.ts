@@ -1,4 +1,4 @@
-import { Component,HostListener, OnInit } from '@angular/core';
+import { Component,ElementRef,HostListener, OnInit, ViewChild,AfterViewInit, Inject } from '@angular/core';
 import {
   trigger,
   state,
@@ -7,13 +7,13 @@ import {
   transition,
   // ...
 } from '@angular/animations';
-import { WHITE_ON_BLACK_CSS_CLASS } from '@angular/cdk/a11y/high-contrast-mode/high-contrast-mode-detector';
+
 @Component({
   selector: 'app-intro',
   templateUrl: './intro.component.html',
   styleUrls: ['./intro.component.css'],
   animations: [
-    trigger('openClose', [
+    trigger('minavbar', [
       // ...
       state('open', style({
        color:'white',
@@ -44,13 +44,41 @@ import { WHITE_ON_BLACK_CSS_CLASS } from '@angular/cdk/a11y/high-contrast-mode/h
         animate('0.5s')
       ]),
     ]),
+    trigger('equipo', [
+      // ...
+      state('open', style({
+       transform:'translate(-100px)'     
+      })),
+      state('closed', style({
+        margin:'30px auto'
+      })),
+      transition('open => closed', [
+        animate('1s')
+      ]),
+      transition('closed => open', [
+        animate('1s')
+      ]),
+      transition('open => close', [
+        animate('0.5s')
+      ]),
+    ]),
   ],
 })
-export class IntroComponent implements OnInit {
+export class IntroComponent implements OnInit , AfterViewInit{
+  @ViewChild('equipo', { static: false }) equipo!: ElementRef;
+  scrollEquipo:number=0;
   isOpen = true;
-  constructor() { }
+  activado:boolean;
+  constructor() { 
+    this.activado=true;
+  }
 
   ngOnInit(): void {
+    
+  }
+  ngAfterViewInit() {
+    this.scrollEquipo=this.equipo.nativeElement.offsetTop
+    console.log(this.equipo.nativeElement.offsetTop)  
   }
   @HostListener('window:scroll') onWindowScroll() {
     if (window.scrollY > 350) { 
@@ -58,5 +86,9 @@ export class IntroComponent implements OnInit {
     } else {
     this.isOpen=true;
     }
+
+    if (window.scrollY > this.scrollEquipo-900){
+      this.activado=false;
+    }else {this.activado=true}
   }
 }

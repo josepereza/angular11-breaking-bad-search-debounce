@@ -2,7 +2,7 @@
    
   <!-- Add your site or app content here -->
     <div class="full-container background-image-container white-text-container">
-      <div  [@openClose]="isOpen ? 'open' : 'closed'" class="navbar">
+      <div  [@minavbar]="isOpen ? 'open' : 'closed'" class="navbar">
         <div>
           <h3>Search Debounce</h3>
         </div>
@@ -39,9 +39,9 @@
         </div>
       </div>
     </div>
-    <section class="equipo">
-      <h1>Equipo</h1>
-      <div class="componentes">
+    <section  class="equipo" >
+      <h1 #equipo [@equipo]="activado ? 'open' : 'closed'" >Equipo</h1>
+      <div class="componentes" >
         <div class="card">
           <img src="../../../assets/images/avatar2.png" alt="Avatar" style="width:100%">
           <div class="container">
