@@ -80,14 +80,14 @@ export class IntroComponent implements OnInit , AfterViewInit{
     this.scrollEquipo=this.equipo.nativeElement.offsetTop
     console.log(this.equipo.nativeElement.offsetTop)  
   }
-  @HostListener('window:scroll') onWindowScroll() {
-    if (window.scrollY > 350) { 
+  @HostListener('document:scroll') onWindowScroll() {
+    if (window.pageYOffset > 350) { 
    this.isOpen=false;
     } else {
     this.isOpen=true;
     }
 
-    if (window.scrollY > this.scrollEquipo-900){
+    if (window.pageYOffset > this.scrollEquipo-900){
       this.activado=false;
     }else {this.activado=true}
   }
